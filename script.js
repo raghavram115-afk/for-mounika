@@ -8,7 +8,7 @@ function updateDays() {
   const diff1 = Math.floor((today - firstMet) / (1000*60*60*24));
   const diff2 = Math.floor((today - connected) / (1000*60*60*24));
   document.getElementById("daysBox").innerHTML =
-    "🌸 Days since we first met: " + diff1 + " days<br>💫 Days since I felt connected: " + diff2 + " days";
+    "\u{1F338} Days since we first met: " + diff1 + " days<br>\u{1F4AB} Days since I felt connected: " + diff2 + " days";
 }
 updateDays();
 
@@ -90,11 +90,11 @@ function next(){
   const text = document.getElementById("text");
 
   if(step === 0){
-    text.innerHTML = "December 28th, 2024 🌸<br><br>The day I first saw you.";
+    text.innerHTML = "December 28th, 2024 \u{1F338}<br><br>The day I first saw you.";
   } else if(step === 1){
-    text.innerHTML = "March 10th, 2025 💫<br><br>The day I felt connected to you.";
+    text.innerHTML = "March 10th, 2025 \u{1F4AB}<br><br>The day I felt connected to you.";
   } else if(step === 2){
-    text.innerHTML = "Since then…<br><br>Every little moment with you has meant something to me ❤️";
+    text.innerHTML = "Since then…<br><br>Every little moment with you has meant something to me \u2764\uFE0F";
   } else if(step === 3){
     const cinematicLines = [
       "I know I may not be everything you are looking for…",
@@ -120,19 +120,19 @@ function showValentineQuestion(){
   container.innerHTML = "";
 
   const question = document.createElement("h1");
-  question.innerText = "Will you be my Valentine or partner? 💖";
+  question.innerText = "Will you be my Valentine or partner? \u{1F496}";
   container.appendChild(question);
 
   const yesBtn = document.createElement("button");
-  yesBtn.innerText = "Yes 😍";
+  yesBtn.innerText = "Yes \u{1F60D}";
   yesBtn.onclick = function(){ celebrate("partner"); };
 
   const noBtn = document.createElement("button");
-  noBtn.innerText = "No 😌";
+  noBtn.innerText = "No \u{1F60C}";
   noBtn.onclick = function(){ askBestPerson(); };
 
   const maybeBtn = document.createElement("button");
-  maybeBtn.innerText = "Maybe / Best Friend 🌸";
+  maybeBtn.innerText = "Maybe / Best Friend \u{1F338}";
   maybeBtn.onclick = function(){ celebrate("friend"); };
 
   container.appendChild(yesBtn);
@@ -148,15 +148,15 @@ function askBestPerson(){
   container.innerHTML = "";
 
   const question = document.createElement("h1");
-  question.innerText = "Would you still like to stay the best person in my life? 💛";
+  question.innerText = "Would you still like to stay the best person in my life? \u{1F49B}";
   container.appendChild(question);
 
   const yesBtn = document.createElement("button");
-  yesBtn.innerText = "Yes 🌸";
+  yesBtn.innerText = "Yes \u{1F338}";
   yesBtn.onclick = function(){ celebrate("friend"); };
 
   const noBtn = document.createElement("button");
-  noBtn.innerText = "No 😔";
+  noBtn.innerText = "No \u{1F614}";
   noBtn.onclick = function(){ celebrate("none"); };
 
   container.appendChild(yesBtn);
@@ -171,11 +171,11 @@ function celebrate(choice){
   container.innerHTML = "";
 
   if(choice === "partner")
-    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>You just made me the happiest person alive 💖✨</h1>";
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>You just made me the happiest person alive \u{1F496}\u2728</h1>";
   else if(choice === "friend")
-    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life </h1>";
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life \u{1F338}\u{1F49B}</h1>";
   else
-    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I respect your choice 🌹</h1>";
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I respect your choice \u{1F339}</h1>";
 
   for(let i=0; i<30; i++){
     let heart = document.createElement("div");
