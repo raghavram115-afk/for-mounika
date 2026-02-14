@@ -1,28 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>For Mounika ❤️</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>For Mounika 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- Background & general styles --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      margin-top: 100px;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1, p {
+      text-shadow: 0 0 8px #fff, 0 0 15px #ff4e75;
+    }
+
+    /* --- Slideshow images --- */
+    .slideshow img {
+      width: 250px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+      transition: opacity 1s ease-in-out;
+      margin-top: 30px;
+    }
+
+    /* --- Buttons --- */
+    button {
+      margin: 15px 10px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #ff4e75;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover { transform: scale(1.1); }
+
+    /* --- Floating hearts --- */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+      z-index: 5;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes float {
+      0% { bottom: -10px; opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
+
+    /* --- Days counter --- */
+    #daysBox {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* --- Typing cursor --- */
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      background: white;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%,50%,100% { opacity: 1; }
+      25%,75% { opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
-<audio autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
+  <div class="container">
+    <div id="daysBox"></div>
+    <div id="text"></div>
 
-<div class="container">
-<h1 id="title">Hi Mounika 💕</h1>
-<p id="text">I made something from my heart for you...</p>
+    <!-- Slideshow -->
+    <div class="slideshow">
+      <img id="slide" src="image1.jpeg" alt="Photo">
+    </div>
 
-<div id="daysBox"></div>
+    <button onclick="next()">Next</button>
+  </div>
 
-<div class="slideshow">
-<img id="slide" src="photo1.jpeg">
-</div>
-
-<button onclick="next()">Click Here ❤️</button>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
