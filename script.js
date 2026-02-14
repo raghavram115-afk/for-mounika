@@ -1,6 +1,6 @@
 let step = 0;
 /* SLIDESHOW */
-const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+const photos = ["photo1.jpeg", "photo2.jpeg", "photo3.jpeg"];
 let index = 0;
 function fadeInPhoto(idx){
   const img = document.getElementById("slide");
@@ -72,3 +72,15 @@ function celebrate(choice){
   else container.innerHTML="<h1 style='margin-top:150px;color:white;'>I respect your choice 🌹</h1>";
   for(let i=0;i<30;i++){let heart=document.createElement("div"); heart.className="heart"; heart.style.left=Math.random()*100+"vw"; heart.style.animationDuration=(Math.random()*3+3)+"s"; document.body.appendChild(heart);}
 }
+
+// create 30 floating hearts
+function createHearts() {
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+  }
+}
+createHearts();
