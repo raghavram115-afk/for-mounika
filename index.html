@@ -5,39 +5,21 @@
   <title>For Mounika</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="hearts"></div>
 
-  <div class="container" id="mainContent">
-    
-    <button id="playMusicBtn">Play Music 🎵</button>
+<div class="hearts-container"></div>
 
-    <audio id="bgMusic" loop>
-      <source src="music.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+<div class="container">
+  <div id="daysBox"></div>
+  <div id="text"></div>
 
-    <!-- Slideshow -->
-    <div class="slideshow">
-      <img id="photo" src="photo1.jpeg" alt="Photo">
-    </div>
-
-    <!-- Typing Message -->
-    <div id="typingText"></div>
-
-    <button onclick="showValentineQuestion()">Next</button>
-
+  <div class="slideshow">
+    <img id="slide" src="photo1.jpeg" alt="Photo">
   </div>
 
-  <!-- Valentine Question Section -->
-  <div id="valentineSection" style="display:none; text-align:center;">
-    <h2>Will you be my Valentine?</h2>
-    <button>Yes</button>
-    <button>No</button>
-  </div>
+  <button onclick="next()">Next</button>
+</div>
 
-  <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
