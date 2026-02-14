@@ -192,6 +192,7 @@ function celebrate(choice){
 }
 
 const music = document.getElementById("bgMusic");
-music.volume = 0.3; // optional: lower volume
+music.volume = 0.3; // optional: reduce volume
 music.play();
+
 
