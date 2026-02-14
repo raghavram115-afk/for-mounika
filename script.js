@@ -89,6 +89,36 @@ if (heartsContainer) {
 
 };
 
+// ===========================
+// STORY FLOW
+// ===========================
+let step = 0;
+function next(){
+  const text = document.getElementById("text");
+
+  if(step === 0){
+    text.innerHTML = "December 28th, 2024 \u{1F338}<br><br>The day I first saw you.";
+  } else if(step === 1){
+    text.innerHTML = "March 10th, 2025 \u{1F4AB}<br><br>The day I felt connected to you.";
+  } else if(step === 2){
+    text.innerHTML = "Since then…<br><br>Every little moment with you has meant something to me \u2764\uFE0F";
+  } else if(step === 3){
+    const cinematicLines = [
+      "I know I may not be everything you are looking for…",
+      "But this is me.",
+      "Lately, I feel like you’ve been a little distant from me…",
+      "I know I did something last week that may have upset you, but my intention was never to hurt you.",
+      "I just want honesty between us.",
+      "And no matter what… I would always try to make you feel special."
+    ];
+    typeWriterCinematic(cinematicLines,"text",700,40);
+  } else if(step === 4){
+    showValentineQuestion();
+  }
+
+  step++;
+}
+
 // ----------- VALENTINE QUESTION -----------
 
 function showValentineQuestion() {
