@@ -173,7 +173,8 @@ function celebrate(choice){
   else if(choice === "friend")
     container.innerHTML="<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life 🌸💛</h1>";
   else
-    container.innerHTML="<h1 style='margin-top:150px;color:white;'>I respect your choice 🌹</h1>";
+    question.innerText = "Will you be my Valentine or partner? 💖"; // ✅ plain quotes
+
 
   for(let i=0;i<30;i++){
     let heart = document.createElement("div");
