@@ -190,3 +190,8 @@ function celebrate(choice){
     document.body.appendChild(heart);
   }
 }
+
+const music = document.getElementById("bgMusic");
+music.volume = 0.3; // optional: lower volume
+music.play();
+
