@@ -15,7 +15,7 @@ updateDays();
 // ===========================
 // PHOTO SLIDESHOW
 // ===========================
-const photos = ["image1.jpeg", "image2.jpeg", "image3.jpeg"]; // replace with your JPEGs
+const photos = ["image1.jpeg","image2.jpeg","image3.jpeg"]; 
 let index = 0;
 
 function fadeInPhoto(idx){
@@ -30,7 +30,6 @@ function fadeInPhoto(idx){
   },30);
 }
 
-// Auto slideshow every 3 seconds
 setInterval(()=>{
   index = (index + 1) % photos.length;
   fadeInPhoto(index);
@@ -88,11 +87,10 @@ let step = 0;
 function next(){
   const text = document.getElementById("text");
 
- if(step === 0){
+  if(step === 0){
     text.innerHTML="December 28th, 2024 🌸<br><br>The day I first saw you.";
-}
- else if(step === 1){
-    text.innerHTML="March 10th, 2025 💫<br><br>That was the day I truly felt connected to you.";
+  } else if(step === 1){
+    text.innerHTML="March 10th, 2025 💫<br><br>The day I felt connected to you.";
   } else if(step === 2){
     text.innerHTML="Since then…<br><br>Every little moment with you has meant something to me ❤️";
   } else if(step === 3){
@@ -106,7 +104,6 @@ function next(){
     ];
     typeWriterCinematic(cinematicLines,"text",700,40);
   } else if(step === 4){
-    // SHOW ONLY THE VALENTINE QUESTION
     showValentineQuestion();
   }
 
@@ -114,21 +111,66 @@ function next(){
 }
 
 // ===========================
-// VALENTINE QUESTION SCREEN
+// VALENTINE QUESTION
 // ===========================
 function showValentineQuestion(){
   const container = document.querySelector(".container");
-  container.innerHTML = ""; // clear everything
+  container.innerHTML = "";
 
-  // Add question
   const question = document.createElement("h1");
   question.innerText = "Will you be my Valentine or partner? 💖";
   container.appendChild(question);
 
-  // Add buttons
   const yesBtn = document.createElement("button");
   yesBtn.innerText = "Yes 😍";
   yesBtn.onclick = () => celebrate("partner");
 
   const noBtn = document.createElement("button");
-  noBtn.innerText = "No
+  noBtn.innerText = "No 😌";
+  noBtn.onclick = () => askBestPerson();
+
+  const maybeBtn = document.createElement("button");
+  maybeBtn.innerText = "Maybe / Best Friend 🌸";
+  maybeBtn.onclick = () => celebrate("friend");
+
+  container.appendChild(yesBtn);
+  container.appendChild(noBtn);
+  container.appendChild(maybeBtn);
+}
+
+// ===========================
+// ASK BEST PERSON
+// ===========================
+function askBestPerson(){
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  const question = document.createElement("h1");
+  question.innerText = "Would you still like to stay the best person in my life? 💛";
+  container.appendChild(question);
+
+  const yesBtn = document.createElement("button");
+  yesBtn.innerText = "Yes 🌸";
+  yesBtn.onclick = () => celebrate("friend");
+
+  const noBtn = document.createElement("button");
+  noBtn.innerText = "No 😔";
+  noBtn.onclick = () => celebrate("none");
+
+  container.appendChild(yesBtn);
+  container.appendChild(noBtn);
+}
+
+// ===========================
+// CELEBRATION MESSAGES
+// ===========================
+function celebrate(choice){
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  if(choice === "partner")
+    container.innerHTML="<h1 style='margin-top:150px;color:white;'>You just made me the happiest person alive 💖✨</h1>";
+  else if(choice === "friend")
+    container.innerHTML="<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life 🌸💛</h1>";
+  else
+    container.innerHTML="<h1 style='margin-top:150px;color:w
