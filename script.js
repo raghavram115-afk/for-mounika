@@ -89,7 +89,7 @@ function next(){
   const text = document.getElementById("text");
 
   if(step === 0){
-    text.innerHTML="December 28th, 2024 🌸<br><br>That was the beginning.";
+    text.innerHTML="December 28th, 2024 🌸<br><br>The day I first saw you.";
   } else if(step === 1){
     text.innerHTML="March 10th, 2025 💫<br><br>That was the day I truly felt connected to you.";
   } else if(step === 2){
