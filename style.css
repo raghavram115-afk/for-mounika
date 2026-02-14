@@ -84,3 +84,10 @@ button:hover { transform: scale(1.1); }
   0%,50%,100% { opacity: 1; }
   25%,75% { opacity: 0; }
 }
+
+#photo {
+  width: 300px;
+  border-radius: 15px;
+  transition: opacity 1s ease-in-out;
+}
+
