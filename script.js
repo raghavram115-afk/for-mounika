@@ -1,93 +1,86 @@
-window.onload = function () {
+// ===========================
+// DAYS COUNTER
+// ===========================
+function updateDays() {
+  const today = new Date();
+  const firstMet = new Date("December 28, 2024");
+  const connected = new Date("March 10, 2025");
+  const diff1 = Math.floor((today - firstMet) / (1000*60*60*24));
+  const diff2 = Math.floor((today - connected) / (1000*60*60*24));
+  document.getElementById("daysBox").innerHTML =
+    "\u{1F338} Days since we first met: " + diff1 + " days<br>\u{1F4AB} Days since I felt connected: " + diff2 + " days";
+}
+updateDays();
 
-  // ----------- FALLING HEARTS -----------
+// ===========================
+// PHOTO SLIDESHOW
+// ===========================
+const photos = ["image1.jpeg","image2.jpeg","image3.jpeg"];
+let index = 0;
 
-const heartsContainer = document.querySelector(".hearts");
-
-if (heartsContainer) {
-
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤";
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-
-    heartsContainer.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }
-
-  setInterval(createHeart, 300);
+function fadeInPhoto(idx){
+  const img = document.getElementById("slide");
+  img.src = photos[idx];
+  img.style.opacity = 0;
+  let op = 0;
+  const timer = setInterval(function(){
+    if(op >= 1) clearInterval(timer);
+    img.style.opacity = op;
+    op += 0.02;
+  }, 30);
 }
 
+setInterval(function(){
+  index = (index + 1) % photos.length;
+  fadeInPhoto(index);
+}, 3000);
 
+// ===========================
+// CINEMATIC TYPING
+// ===========================
+function typeWriterCinematic(lines, elementId, lineDelay, charDelay){
+  lineDelay = lineDelay || 600;
+  charDelay = charDelay || 35;
+  const element = document.getElementById(elementId);
+  element.innerHTML = "";
+  let lineIndex = 0;
 
-  // ----------- PHOTO SLIDESHOW -----------
-
-  const photos = [
-    "photo1.jpeg",
-    "photo2.jpeg",
-    "photo3.jpeg",
-    "photo4.jpeg",
-    "photo5.jpeg"
-  ];
-
-  let index = 0;
-  const photoElement = document.getElementById("photo");
-
-  if (photoElement) {
-    function showNextPhoto() {
-      photoElement.style.opacity = 0;
-
-      setTimeout(() => {
-        index = (index + 1) % photos.length;
-        photoElement.src = photos[index];
-        photoElement.style.opacity = 1;
-      }, 500);
+  function typeLine(){
+    if(lineIndex >= lines.length){
+      element.innerHTML += "<span class='cursor'>|</span>";
+      return;
     }
-
-    setInterval(showNextPhoto, 3000);
-  }
-
-  // ----------- TYPING MESSAGE -----------
-
-  const message = "the day I first saw you changed something inside me. I am feeling that you are distancing lately. I did something but my intention was never to hurt you.";
-
-  const typingElement = document.getElementById("typingText");
-
-  if (typingElement) {
     let i = 0;
-
-    function typeWriter() {
-      if (i < message.length) {
-        typingElement.innerHTML += message.charAt(i);
+    const currentLine = lines[lineIndex];
+    function typeChar(){
+      if(i < currentLine.length){
+        element.innerHTML += currentLine.charAt(i);
         i++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeChar, charDelay);
+      } else {
+        element.innerHTML += "<br><br>";
+        lineIndex++;
+        setTimeout(typeLine, lineDelay);
       }
     }
-
-    typeWriter();
+    typeChar();
   }
+  typeLine();
+}
 
-  // ----------- MUSIC BUTTON -----------
-
-  const music = document.getElementById("bgMusic");
-  const playBtn = document.getElementById("playMusicBtn");
-
-  if (playBtn && music) {
-    playBtn.addEventListener("click", function () {
-      music.play();
-      music.volume = 0.3;
-      playBtn.style.display = "none";
-    });
+// ===========================
+// FLOATING HEARTS
+// ===========================
+function createHearts() {
+  for(let i=0; i<30; i++){
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3 + 3) + "s";
+    document.body.appendChild(heart);
   }
-
-};
+}
+createHearts();
 
 // ===========================
 // STORY FLOW
@@ -119,14 +112,76 @@ function next(){
   step++;
 }
 
-// ----------- VALENTINE QUESTION -----------
+// ===========================
+// VALENTINE QUESTION
+// ===========================
+function showValentineQuestion(){
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
 
-function showValentineQuestion() {
-  const main = document.getElementById("mainContent");
-  const valentine = document.getElementById("valentineSection");
+  const question = document.createElement("h1");
+  question.innerText = "Will you be my Valentine or partner? \u{1F496}";
+  container.appendChild(question);
 
-  if (main && valentine) {
-    main.style.display = "none";
-    valentine.style.display = "block";
+  const yesBtn = document.createElement("button");
+  yesBtn.innerText = "Yes \u{1F60D}";
+  yesBtn.onclick = function(){ celebrate("partner"); };
+
+  const noBtn = document.createElement("button");
+  noBtn.innerText = "No \u{1F60C}";
+  noBtn.onclick = function(){ askBestPerson(); };
+
+  const maybeBtn = document.createElement("button");
+  maybeBtn.innerText = "Maybe / Best Friend \u{1F338}";
+  maybeBtn.onclick = function(){ celebrate("friend"); };
+
+  container.appendChild(yesBtn);
+  container.appendChild(noBtn);
+  container.appendChild(maybeBtn);
+}
+
+// ===========================
+// ASK BEST PERSON
+// ===========================
+function askBestPerson(){
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  const question = document.createElement("h1");
+  question.innerText = "Would you still like to stay the best person in my life? \u{1F49B}";
+  container.appendChild(question);
+
+  const yesBtn = document.createElement("button");
+  yesBtn.innerText = "Yes \u{1F338}";
+  yesBtn.onclick = function(){ celebrate("friend"); };
+
+  const noBtn = document.createElement("button");
+  noBtn.innerText = "No \u{1F614}";
+  noBtn.onclick = function(){ celebrate("none"); };
+
+  container.appendChild(yesBtn);
+  container.appendChild(noBtn);
+}
+
+// ===========================
+// CELEBRATION MESSAGES
+// ===========================
+function celebrate(choice){
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  if(choice === "partner")
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>You just made me the happiest person alive \u{1F496}\u2728</h1>";
+  else if(choice === "friend")
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life \u{1F338}\u{1F49B}</h1>";
+  else
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I respect your choice \u{1F339}</h1>";
+
+  for(let i=0; i<30; i++){
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.animationDuration = (Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
   }
 }
