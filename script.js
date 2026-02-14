@@ -15,6 +15,9 @@ updateDays();
 // ===========================
 // PHOTO SLIDESHOW
 // ===========================
+// ===========================
+// PHOTO SLIDESHOW
+// ===========================
 const photos = ["photo1.jpeg","photo2.jpeg","photo3.jpeg"];
 let index = 0;
 
@@ -34,6 +37,7 @@ setInterval(function(){
   index = (index + 1) % photos.length;
   fadeInPhoto(index);
 }, 3000);
+
 
 // ===========================
 // CINEMATIC TYPING
