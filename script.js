@@ -192,7 +192,13 @@ function celebrate(choice){
 }
 
 const music = document.getElementById("bgMusic");
-music.volume = 0.3; // optional: reduce volume
-music.play();
+const playBtn = document.getElementById("playMusicBtn");
+
+playBtn.addEventListener("click", function() {
+  music.play();
+  music.volume = 0.3; // optional, lower the volume
+  playBtn.style.display = "none"; // hide button after playing
+});
+
 
 
