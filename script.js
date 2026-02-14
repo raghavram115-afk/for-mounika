@@ -173,7 +173,7 @@ function celebrate(choice){
   if(choice === "partner")
     container.innerHTML = "<h1 style='margin-top:150px;color:white;'>You just made me the happiest person alive 💖✨</h1>";
   else if(choice === "friend")
-    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life 🌸</h1>";
+    container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I’m grateful to still have you as the best person in my life </h1>";
   else
     container.innerHTML = "<h1 style='margin-top:150px;color:white;'>I respect your choice 🌹</h1>";
 
