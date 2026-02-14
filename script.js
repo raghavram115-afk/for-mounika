@@ -4,23 +4,27 @@ window.onload = function () {
 
 const heartsContainer = document.querySelector(".hearts");
 
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤";
+if (heartsContainer) {
 
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
 
-  heartsContainer.appendChild(heart);
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 300);
 }
 
-setInterval(createHeart, 300);
 
 
   // ----------- PHOTO SLIDESHOW -----------
