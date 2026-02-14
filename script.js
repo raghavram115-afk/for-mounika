@@ -18,7 +18,15 @@ updateDays();
 // ===========================
 // PHOTO SLIDESHOW
 // ===========================
-const photos = ["photo1.jpeg","photo2.jpeg","photo3.jpeg"];
+const photos = [
+  "photo1.jpeg",
+  "photo2.jpeg",
+  "photo3.jpeg",
+  "photo4.jpeg",
+  "photo5.jpeg",
+  "photo6.jpeg"
+];
+
 
 let index = 0;
 
