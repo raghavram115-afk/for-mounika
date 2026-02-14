@@ -1,0 +1,74 @@
+body {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4e75;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#daysBox {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.slideshow {
+  margin-top: 20px;
+}
+
+.slideshow img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+  transition: opacity 1s ease-in-out;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background-color: white;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,50%,100% { background-color: white; }
+  25%,75% { background-color: transparent; }
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 6s linear infinite;
+}
+.heart::before, .heart::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+@keyframes float {
+  0% { bottom: -10px; opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
+}
