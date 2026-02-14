@@ -20,8 +20,7 @@ const photos = [
   "photo2.jpeg",
   "photo3.jpeg",
   "photo4.jpeg",
-  "photo5.jpeg",
-  "photo6.jpeg"
+  "photo5.jpeg"
 ];
 
 let index = 0;
