@@ -2,29 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Mounika 💖</title>
+  <title>For Mounika</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <button id="playMusicBtn">Play Music 🎵</button>
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
 
 <body>
-  <div class="container">
-    <div id="daysBox"></div>
-    <div id="text"></div>
+
+  <div class="container" id="mainContent">
+
+    <button id="playMusicBtn">Play Music 🎵</button>
+
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 
     <!-- Slideshow -->
     <div class="slideshow">
-      <img id="slide" src="photo1.jpeg" alt="Photo">
+      <img id="photo" src="photo1.jpeg" alt="Photo">
     </div>
 
-    <button onclick="next()">Next</button>
+    <!-- Typing Message -->
+    <div id="typingText"></div>
+
+    <button onclick="showValentineQuestion()">Next</button>
+
+  </div>
+
+  <!-- Valentine Question Section -->
+  <div id="valentineSection" style="display:none; text-align:center;">
+    <h2>Will you be my Valentine?</h2>
+    <button>Yes</button>
+    <button>No</button>
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
