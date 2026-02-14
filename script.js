@@ -15,7 +15,7 @@ updateDays();
 // ===========================
 // PHOTO SLIDESHOW
 // ===========================
-const photos = ["image1.jpeg","image2.jpeg","image3.jpeg"]; 
+const photos = ["photo1.jpeg","photo2.jpeg","photo3.jpeg"]; 
 let index = 0;
 
 function fadeInPhoto(idx){
